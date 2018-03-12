@@ -1,0 +1,19 @@
+.task-container{
+    max-width: 100%;
+}
+
+.task-container .header{
+    background: rgb(45, 79, 231);
+    padding: 10px;
+}
+
+.task-container .content{
+    border: 1px solid rgb(45, 79, 231);
+    padding: 10px;
+    background: #fff;
+}
+
+.task-container .content .function{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}

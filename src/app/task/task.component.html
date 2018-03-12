@@ -1,0 +1,23 @@
+
+<div class="task-container">
+  <div class="header">
+    Tasks Managements
+  </div>
+  <div class="content">
+
+      <div class="function">
+          <button type="button" (click)="addTask()">Add task</button>
+          <button type="button" (click)="saveTask()">Save</button>
+          <button type="button" (click)="exportPDF()">Export</button>
+        </div>
+        
+    <table>
+      <tr *ngFor="let item of tasks; let i = index">
+        <td><input type="text" [(ngModel)] = "tasks[i].Name"></td>
+        <td><input type="text" [(ngModel)] = "tasks[i].Description"></td>
+        <td><button (click)="deleteItem(item.Id)">x</button></td>
+      </tr>
+    </table>
+    
+  </div>
+</div>
