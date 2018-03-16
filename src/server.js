@@ -37,7 +37,6 @@ var TasksSchema = new Schema({
   
 var taskData = mongo.model('Tasks', TasksSchema, 'TaskList');
 
-
 //1. Get
 app.get('/api/getTasks',function(req, res){
     
@@ -51,9 +50,9 @@ app.get('/api/getTasks',function(req, res){
 });
 
 //2. Add
-app.post('/api/saveUser',function(req, res){
+app.post('/api/saveTask',function(req, res){
     var mod = new taskData(req.body);
-    if(req.body.Id != -1){
+    if(req.body.Id === -1){
         //In case Insert
         mod.save(function(err, data){
             if(err){
@@ -65,7 +64,7 @@ app.post('/api/saveUser',function(req, res){
 
     }else{
         //In case Update
-        mod.findByIdAndUpdate(req.body.Id, {Name : req.body.Name, Description : req.body.Description}, function(err, data){
+        taskData.findByIdAndUpdate(req.body.Id, {Name : req.body.Name, Description : req.body.Description}, function(err, data){
             if(err){
                 res.send(err);
             }else{
@@ -76,8 +75,8 @@ app.post('/api/saveUser',function(req, res){
 });
 
 //3. Delete
-app.post("/api/delete",function(req,res){      
-    model.remove({ _id: req.body.Id }, function(err) {    
+app.post("/api/deleteTask",function(req,res){      
+    taskData.remove({ _id: req.body.Id }, function(err) {    
      if(err){    
          res.send(err);    
      }    

@@ -15,13 +15,11 @@ export class CommonService {
     return this.http.post('http://localhost:8080/api/saveTask',task).map((response : Response) => response.json());
   }
 
-
   getTasks(){
     return this.http.get('http://localhost:8080/api/gettasks').map((response : Response) => response.json());
   }
 
   deleteTask(id){
-    return this.http.post('http://localhost:8080/api/deleteTask', {'id' : id}).map((response : Response) => response.json());
+    return this.http.post('http://localhost:8080/api/deleteTask', {'Id' : id}).map((response : Response) => response.json());
   }
-
 }
