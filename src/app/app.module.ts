@@ -14,13 +14,14 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { DefaultComponent } from './default/default.component';
 import { TaskComponent } from './task/task.component';
+import { CustomerDashboardModule } from './customer-dashboard/customer-dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    DefaultComponent,
+    DefaultComponent, 
     TaskComponent
   ],
   imports: [
@@ -28,7 +29,8 @@ import { TaskComponent } from './task/task.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    CustomerDashboardModule // add the feature module here
   ],
   providers: [DataService, CommonService],
   bootstrap: [AppComponent]
