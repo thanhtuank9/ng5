@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
 
-const Json2csvParser = require('json2csv').Parser;
+//const Json2csvParser = require('json2csv').Parser;
 
 @Component({
   selector: 'app-task',
@@ -52,12 +52,12 @@ export class TaskComponent implements OnInit {
     this.commonService.getTasks().subscribe((data) => {
       
       const fields = ['Name', 'Description'];
-      const json2csvParser = new Json2csvParser({ fields });
-      const csv = json2csvParser.parse(data);
+      //const json2csvParser = new Json2csvParser({ fields });
+      //const csv = json2csvParser.parse(data);
       
-      console.log(csv);
+      //console.log(csv);
 
-      this.downloadFile(csv);
+      //this.downloadFile(csv);
     });
   }
 

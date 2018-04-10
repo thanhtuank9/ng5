@@ -29,5 +29,10 @@
       {{ goal }}
     </p>
   </div>
+  <div class="col">
+    <p class="life-container" *ngFor="let nav of navs; let i = index" (click)="removeItemNav(nav.name)">
+      {{ nav.name }}
+    </p>
+  </div>
 
 </div>

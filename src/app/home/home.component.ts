@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import {DataService} from '../data.service';
+import {Navigation } from '../navigation'
 
 @Component({
   selector: 'app-home',
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   btnText: string = 'Add Item';
   goalText: string = 'My first life goal';
   goals = [];
+  navs : any = Navigation
 
   constructor(private _data: DataService) { }
 
@@ -43,6 +45,8 @@ export class HomeComponent implements OnInit {
     this._data.goal.subscribe(res => this.goals = res);
     this._data.changeGoal(this.goals);
     this.itemCount = this.goals.length;
+
+    Navigation.push({ name: 'temp', url: 'temp'});
   }
 
   addItem(){
@@ -59,5 +63,10 @@ export class HomeComponent implements OnInit {
   removeItem(i){
     this.goals.splice(i, 1);
     this._data.changeGoal(this.goals);
+  }
+
+  removeItemNav(name){
+    var i = Navigation.findIndex(r => r.name == name);
+    Navigation.splice(i, 1);
   }
 }

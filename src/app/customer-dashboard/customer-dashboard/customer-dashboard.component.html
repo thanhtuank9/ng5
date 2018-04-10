@@ -1,3 +1,5 @@
 <p>
   customer-dashboard (Customer Module) works!
 </p>
+Id Clicked: {{idClicked}}
+<generic-table [data]="data" [dataTableConfig]="dataTableConfig" (messageEvent)="receiveMessage($event)"></generic-table>
